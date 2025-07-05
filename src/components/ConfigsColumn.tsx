@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Team } from '../interfaces/Team'
-import teamsJson from '../data/teams.json'
 import { Matchup } from '../interfaces/Matchup'
 
 interface Props {
@@ -9,10 +8,12 @@ interface Props {
   allTeams: Team[]
   setAllTeams: React.Dispatch<React.SetStateAction<Team[]>>
   teamLeft: Team[]
+  setTeamLeft: React.Dispatch<React.SetStateAction<Team[]>>
   teamRight: Team[]
+  setTeamRight: React.Dispatch<React.SetStateAction<Team[]>>
 }
 
-export default function ConfigsColumn({ numberOfTeams, setNumberOfTeams, setAllTeams, teamLeft, teamRight }: Props) {
+export default function ConfigsColumn({ numberOfTeams, setNumberOfTeams, setAllTeams, teamLeft, setTeamLeft, teamRight, setTeamRight}: Props) {
   const [matchups, setMatchups] = useState<Matchup[]>([])
 
   const handleNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +32,10 @@ export default function ConfigsColumn({ numberOfTeams, setNumberOfTeams, setAllT
   }
 
   const handleResetTeams = () => {
-    setAllTeams(Object.entries(teamsJson).map(([nickname, name]) => { return { nickname, name } }))
+   // setTeamLeft([]); // Reset teamLeft to empty array
+   // setTeamRight([]); // Reset teamRight to empty array 
+   // setAllTeams(Object.entries(teamsJson).map(([nickname, name]) => { return { nickname, name } }));
+
   }
 
   const handleGenerateMatchups = () => {

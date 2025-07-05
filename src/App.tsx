@@ -21,6 +21,8 @@ const App: React.FC = () => {
         allTeams={allTeams} 
         setAllTeams={setAllTeams}
         teamLeft={teamLeft}
+        setTeamLeft={setTeamLeft}
+        setTeamRight={setTeamRight}
         teamRight={teamRight}
       />
       {/* All teams */}
